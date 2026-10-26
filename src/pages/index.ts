@@ -1,9 +1,8 @@
 import { AuthLayout, DefaultLayout } from '@/app/layouts';
-
-import VRouting from './VRouting.vue';
 import { SignIn } from '@/pages/auth/sign-in';
+import { SignUp } from '@/pages/auth/sign-up';
 import { RouteRecordRaw } from 'vue-router';
-import SignUp from '@/pages/auth/sign-up/ui/SignUp.vue';
+import VRouting from './VRouting.vue';
 
 export const routes: Array<RouteRecordRaw> = [
   {
@@ -35,9 +34,9 @@ export const routes: Array<RouteRecordRaw> = [
         path: 'sign-up',
         component: SignUp,
         name: 'SignUp',
-      }
-    ]
-  }
+      },
+    ],
+  },
 ];
 
 export { VRouting };

@@ -1,36 +1,11 @@
 <script setup lang="ts">
-import type { DomEventHandler, YMap } from '@yandex/ymaps3-types';
-
-import { YMapMarkerProps } from '@yandex/ymaps3-types/imperative/YMapMarker';
-import axios from 'axios';
-import { ref, shallowRef, useId } from 'vue';
-import {
-  YandexMap,
-  YandexMapDefaultFeaturesLayer,
-  YandexMapDefaultMarker,
-  YandexMapDefaultSchemeLayer,
-  YandexMapListener,
-  YandexMapMarker,
-} from 'vue-yandex-maps';
-
 import IconMtuci from '@/shared/icons/Mtuci.vue';
+import type { YMap } from '@yandex/ymaps3-types';
+import { YMapMarkerProps } from '@yandex/ymaps3-types/imperative/YMapMarker';
+import { shallowRef } from 'vue';
+import { YandexMap, YandexMapDefaultFeaturesLayer, YandexMapDefaultSchemeLayer, YandexMapMarker } from 'vue-yandex-maps';
 
 const map = shallowRef<null | YMap>(null);
-
-axios
-  .get('https://skf-ecoscan.ru/api/points/get_points?limit=1500', {
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      Authorization:
-        'Bearer REDACTED',
-    },
-  })
-  .then((response) => {
-    console.log(response);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
 
 const markers: YMapMarkerProps[] = [
   {
