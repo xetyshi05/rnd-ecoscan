@@ -1,39 +1,50 @@
-# .
+# ЭкоСкан
 
-This template should help get you started developing with Vue 3 in Vite.
+Фронтенд веб-приложения для сообщений о городских проблемах (мусор, граффити, повреждённые дороги, упавшие деревья и т.д.). Житель фотографирует нарушение, добавляет описание и отправляет заявку с геолокацией в администрацию. Проект студентов СКФ МТУСИ (Ростов-на-Дону).
 
-## Recommended IDE Setup
+> Репозиторий содержит клиентскую часть. Реализовано: интерактивная карта, формы входа и регистрации с валидацией, страница «О нас». Остальные разделы (профиль, уведомления, список заявок) в разработке.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Стек
 
-## Type Support for `.vue` Imports in TS
+- **Vue 3** (Composition API, `<script setup>`) + **TypeScript**
+- **Vite 7**, **Vue Router 4**
+- **Tailwind CSS 4** + **PrimeVue 4** (unstyled-режим, компоненты в стиле [Volt](https://volt.primevue.org/))
+- **PrimeVue Forms** + **Zod** — формы и валидация
+- **Yandex Maps JS API v3** (`vue-yandex-maps`)
+- **ESLint** (flat config) + **Prettier**
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## Архитектура
 
-## Customize configuration
+Структура следует идеям [Feature-Sliced Design](https://feature-sliced.design/):
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+```
+src/
+├── app/       # инициализация приложения, роутер, layouts, глобальные стили
+├── pages/     # страницы: home (карта), about, auth/sign-in, auth/sign-up
+└── shared/    # переиспользуемое: UI-компоненты, иконки, хелперы
+```
 
-## Project Setup
+У каждого слайса есть публичный API через `index.ts`, схемы валидации лежат в `model/`.
+
+## Запуск
+
+Требуется Node.js `^20.19.0 || >=22.12.0` и [pnpm](https://pnpm.io/).
 
 ```sh
 pnpm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
+cp .env.example .env   # укажите ключ Яндекс.Карт в VITE_YMAPS_API_KEY
 pnpm dev
 ```
 
-### Type-Check, Compile and Minify for Production
+Ключ можно получить в [кабинете разработчика Яндекса](https://developer.tech.yandex.ru/services) (JavaScript API и HTTP Геокодер).
 
-```sh
-pnpm build
-```
+## Скрипты
 
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-pnpm lint
-```
+| Команда           | Описание                           |
+| ----------------- | ---------------------------------- |
+| `pnpm dev`        | Dev-сервер с HMR                   |
+| `pnpm build`      | Проверка типов и production-сборка |
+| `pnpm preview`    | Предпросмотр сборки                |
+| `pnpm type-check` | Проверка типов (`vue-tsc`)         |
+| `pnpm lint`       | ESLint                             |
+| `pnpm format`     | Prettier                           |

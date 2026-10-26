@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import { Form, FormSubmitEvent } from '@primevue/forms';
-import { reactive } from 'vue';
-
 import { VFormItem } from '@/shared/ui/form-item';
 import Button from '@/shared/ui/volt/Button.vue';
 import InputText from '@/shared/ui/volt/InputText.vue';
 import Password from '@/shared/ui/volt/Password.vue';
-
+import { Form, FormSubmitEvent } from '@primevue/forms';
+import { reactive } from 'vue';
 import { signUpSchemaModel, signUpSchemaResolver } from '../model/signUp.model';
 
 const form = reactive<signUpSchemaModel>({ fio: '', email: '', password: '', password_confirmation: '' });

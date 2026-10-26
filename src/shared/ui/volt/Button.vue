@@ -3,8 +3,8 @@
     unstyled
     :pt="theme"
     :ptOptions="{
-            mergeProps: ptViewMerge
-        }"
+      mergeProps: ptViewMerge,
+    }"
   >
     <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
       <slot :name="slotName" v-bind="slotProps ?? {}" />
@@ -50,7 +50,7 @@ const theme = ref<ButtonPassThroughOptions>({
   label: `font-bold p-icon-only:invisible p-icon-only:w-0
         p-small:text-xs p-large:text-[1.125rem]`,
   pcBadge: {
-    root: `min-w-4 h-4 leading-4 bg-primary-contrast rounded-full text-primary text-xs font-bold`
-  }
+    root: `min-w-4 h-4 leading-4 bg-primary-contrast rounded-full text-primary text-xs font-bold`,
+  },
 });
 </script>

@@ -10,10 +10,8 @@
 
 <script setup lang="ts">
 import type { InputTextPassThroughOptions, InputTextProps } from 'primevue/inputtext';
-
 import InputText from 'primevue/inputtext';
 import { ref } from 'vue';
-
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ InputTextProps {}

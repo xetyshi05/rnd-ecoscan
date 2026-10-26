@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import Logo from '@/shared/icons/Logo.svg'
+import Logo from '@/shared/icons/Logo.svg';
 </script>
 
 <template>
-  <div class="h-screen w-full bg-[url(/images/authBg.webp)] bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center">
-    <div class="max-w-xs w-full bg-white rounded-[15px] py-4 px-5 flex flex-col items-center">
+  <div class="flex h-screen w-full flex-col items-center justify-center bg-[url(/images/authBg.webp)] bg-cover bg-center bg-no-repeat">
+    <div class="flex w-full max-w-xs flex-col items-center rounded-[15px] bg-white px-5 py-4">
       <Logo />
       <router-view />
     </div>

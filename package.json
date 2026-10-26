@@ -1,5 +1,6 @@
 {
   "name": "eco-scan",
+  "description": "ЭкоСкан — фронтенд приложения для сообщений о городских проблемах на карте",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -20,7 +21,6 @@
     "@primevue/forms": "^4.3.7",
     "@primevue/icons": "^4.3.7",
     "@tailwindcss/vite": "^4.1.11",
-    "axios": "^1.11.0",
     "primeicons": "^7.0.0",
     "primevue": "^4.3.7",
     "tailwind-merge": "^3.3.1",

@@ -21,9 +21,7 @@
             "./node_modules/@yandex/ymaps3-types"
         ],
         "types": [
-            "vite/client",
-            "vue/tsx",
-            "./src/app/type-declarations"
+            "vite/client"
         ],
         "resolveJsonModule": true,
         "allowJs": true,

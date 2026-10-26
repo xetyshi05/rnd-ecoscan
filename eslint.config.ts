@@ -6,12 +6,16 @@ export default defineConfigWithVueTs(
   vue.configs['flat/recommended'],
   vueTsConfigs.recommended,
   {
-    ignores: ['node_modules', 'public', 'src/shared/ui/volt'],
+    ignores: ['node_modules', 'dist', 'public', 'src/shared/ui/volt'],
   },
   {
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
     },
+  },
+  {
+    files: ['src/shared/icons/**/*.vue'],
+    rules: { 'vue/multi-word-component-names': 'off' },
   },
   prettier,
 );
